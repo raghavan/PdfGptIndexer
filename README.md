@@ -27,6 +27,10 @@ The PdfGptIndexer operates in several stages:
 3. These embeddings are stored in a FAISS index, providing a compact and efficient storage method.
 4. Finally, a query interface allows you to retrieve relevant information from the indexed data by asking questions. The application fetches and displays the most relevant text chunk.
 
+<img width="974" alt="Screenshot 2023-07-04 at 7 46 57 PM" src="https://github.com/raghavan/PdfGptIndexer/assets/131585/00c2f021-f642-433f-99d0-022232eaca6a">
+
+
+
 ## Advantages of Storing Embeddings Locally
 
 Storing embeddings locally provides several advantages:
