@@ -29,8 +29,6 @@ The PdfGptIndexer operates in several stages:
 
 ![Untitled-2023-06-16-1537](https://github.com/raghavan/PdfGptIndexer/assets/131585/2e71dd82-bf4f-44db-b1ae-908cbb465deb)
 
-
-
 ## Advantages of Storing Embeddings Locally
 
 Storing embeddings locally provides several advantages:
@@ -54,3 +52,8 @@ python3 pdf_gpt_indexer.py
 ```
 
 Please ensure that the folders specified in the script for PDF documents and the output text files exist and are accessible. The query interface will start after the embeddings are computed and stored. You can exit the query interface by typing 'exit'.
+
+## Exploring Custom Data with ChatGPT
+
+Check out the post [here](https://devden.raghavan.studio/p/chatgpt-using-your-own-data) for a comprehensive guide on how to utilize ChatGPT with your own custom data.
+
