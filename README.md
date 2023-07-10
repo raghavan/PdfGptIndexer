@@ -15,7 +15,7 @@ PdfGptIndexer is an efficient tool for indexing and searching PDF text data usin
 You can install all dependencies by running the following command:
 
 ```shell
-pip install langchain openai textract transformers langchain faiss-cpu
+pip install langchain openai textract transformers langchain faiss-cpu pypdf tiktoken
 ```
 
 ## How It Works
