@@ -4,7 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 import os
 from langchain.vectorstores import FAISS
-from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 
 def process_pdf_folder(pdf_folder_name,txt_folder_name):
@@ -66,7 +66,8 @@ for chunk in all_chunks[1:]:
     db.merge_from(db_temp)
     
 chat_history = []
-qa = ConversationalRetrievalChain.from_llm(OpenAI(temperature=0.1), db.as_retriever())
+llm_model = ChatOpenAI(temperature=0.1, model="gpt-3.5-turbo")
+qa = ConversationalRetrievalChain.from_llm(llm_model, db.as_retriever())
 
 while True:
     # Get user query
