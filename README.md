@@ -1,4 +1,8 @@
+
 # PdfGptIndexer
+**PdfGptIndexer was featured at the top of [Hacker News](https://news.ycombinator.com/item?id=36648794)!**
+<img width="1139" alt="Screenshot 2024-05-18 at 9 38 18 AM" src="https://github.com/raghavan/raghavan/assets/131585/24215a9a-d423-45a8-8c4d-d9ee8b1ec752">
+
 
 ## Description
 PdfGptIndexer is an efficient tool for indexing and searching PDF text data using OpenAI APIs and FAISS (Facebook AI Similarity Search). This software is designed for rapid information retrieval and superior search accuracy.
