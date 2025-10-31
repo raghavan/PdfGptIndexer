@@ -79,17 +79,17 @@ Place your PDF files in the `pdf/` folder (or any folder of your choice).
 Run the indexer to process your PDFs and create the vector database:
 
 ```bash
-python3 indexer.py
+python indexer.py
 ```
 
 Or specify a custom PDF folder:
 ```bash
-python3 indexer.py /path/to/your/pdfs
+python indexer.py /path/to/your/pdfs
 ```
 
 Or specify both custom PDF folder and index location:
 ```bash
-python3 indexer.py /path/to/your/pdfs /path/to/save/index
+python indexer.py /path/to/your/pdfs /path/to/save/index
 ```
 
 **What happens:**
@@ -105,10 +105,10 @@ python3 indexer.py /path/to/your/pdfs /path/to/save/index
 Start the interactive chatbot:
 
 ```bash
-python3 chatbot.py
+python chatbot.py
 ```
 
 Or specify a custom index location:
 ```bash
-python3 chatbot.py /path/to/your/index
+python chatbot.py /path/to/your/index
 ```
