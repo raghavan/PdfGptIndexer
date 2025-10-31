@@ -14,7 +14,7 @@ env/
 ENV/
 
 # FAISS index (can be regenerated)
-faiss_index/
+faiss_index*
 
 # Extracted text files
 text/*.txt
