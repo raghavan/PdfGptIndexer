@@ -81,11 +81,31 @@ def index_pdfs(pdf_folder, index_path="faiss_index"):
     print(f"\nTotal chunks to index: {len(all_documents)}")
     print("Creating embeddings and building FAISS index...")
     
-    # Create embeddings and FAISS index
-    embeddings = OpenAIEmbeddings()
+    # Create embeddings with smaller batch size to avoid token limit
+    embeddings = OpenAIEmbeddings(
+        chunk_size=100  # Process in smaller batches to avoid token limits
+    )
     
     try:
-        vectorstore = FAISS.from_documents(all_documents, embeddings)
+        # Build FAISS index incrementally in batches
+        # This avoids sending all documents at once and exceeding token limits
+        batch_size = 100  # Process 100 chunks at a time
+        
+        print(f"Processing {len(all_documents)} chunks in batches of {batch_size}...")
+        
+        # Initialize empty vectorstore with first batch
+        first_batch = all_documents[:batch_size]
+        vectorstore = FAISS.from_documents(first_batch, embeddings)
+        print(f"  Processed batch 1/{(len(all_documents) + batch_size - 1)//batch_size}")
+        
+        # Add remaining batches incrementally
+        for i in range(batch_size, len(all_documents), batch_size):
+            batch = all_documents[i:i + batch_size]
+            batch_vectorstore = FAISS.from_documents(batch, embeddings)
+            vectorstore.merge_from(batch_vectorstore)
+            batch_num = (i // batch_size) + 1
+            total_batches = (len(all_documents) + batch_size - 1) // batch_size
+            print(f"  Processed batch {batch_num}/{total_batches}")
         
         # Save to disk
         vectorstore.save_local(index_path)

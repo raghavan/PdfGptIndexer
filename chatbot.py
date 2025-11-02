@@ -43,7 +43,7 @@ def generate_answer(llm, query, context_docs):
     
     # Create prompt
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a helpful assistant. Answer the question based on the provided context from PDF documents. If the context doesn't contain relevant information, say 'I don't know.'"),
+        ("system", "You are a helpful assistant. Answer the question based on the provided context from PDF documents. If the context doesn't contain relevant information, say 'I don't know.' Keep your response concise and within approximately 3000 characters to ensure complete answers without truncation."),
         ("user", f"Context:\n{context}\n\nQuestion: {query}\n\nAnswer:")
     ])
     
@@ -75,7 +75,7 @@ def main():
     
     # Initialize LLM
     print(f"Initializing {MODEL_NAME}...")
-    llm = ChatOpenAI(model_name=MODEL_NAME, temperature=0.1)
+    llm = ChatOpenAI(model_name=MODEL_NAME, temperature=0.1, max_tokens=4096)
     
     print(f"\n✓ Ready! Using {MODEL_NAME}, retrieving top {TOP_K} matches")
     print("Type 'exit' to quit")
